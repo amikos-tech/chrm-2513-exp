@@ -12,19 +12,19 @@ jobs:
     steps:
 
       - uses: actions/checkout@v3
-      - name: Set up Python 3.11
+      - name: Set up Python 3.9
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11
+          python-version: 3.9
       - name: Setup Miniconda
         uses: conda-incubator/setup-miniconda@v2
         with:
           auto-update-conda: true
-          python-version: 3.11
+          python-version: 3.9
           environment-file: environment.yml
           activate-environment: test-env
       - name: Install Dependencies
-        run: conda install -c conda-forge chromadb --yes
+        run: conda install -c conda-forge chromadb==0.5.4 --yes
       - name: Run test
         run: |
           echo "Running tests"
