@@ -12,6 +12,9 @@ def reproduce() -> None:
                    embeddings=random_vectors.tolist())
     print("Added 1000 documents to collection")
 
+    for i in range(1000):
+        collection.add(ids=[f"{uuid.uuid4()}"], documents=[f"document {i}"], embeddings=[random_vectors[i].tolist()])
+
 
 if __name__ == "__main__":
     reproduce()
