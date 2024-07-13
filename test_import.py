@@ -5,8 +5,8 @@ import uuid
 
 def reproduce() -> None:
     entries = 1000
-    random_vectors = np.random.rand(entries, 1024)
-    client = chromadb.PersistentClient()
+    random_vectors = np.random.rand(entries, 4096)
+    client = chromadb.PersistentClient(path="test")
     collection = client.get_or_create_collection("my_collection")
     collection.add(ids=[f"{uuid.uuid4()}" for _ in range(entries)], documents=[f"document {i}" for i in range(entries)],
                    embeddings=random_vectors.tolist())
