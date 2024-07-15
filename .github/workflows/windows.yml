@@ -24,7 +24,9 @@ jobs:
           environment-file: environment.yml
           activate-environment: test-env
       - name: Install Dependencies
-        run: conda install -c conda-forge chromadb==0.5.4 chroma-hnswlib==0.7.3 --update-deps --yes
+        run: |
+          conda install -c conda-forge chromadb==0.5.4 --yes
+          pip install chroma-hnswlib==0.7.3
       - name: Run test
         run: |
           echo "Running tests"
