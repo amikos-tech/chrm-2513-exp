@@ -4,5 +4,4 @@ channels:
 dependencies:
   - python=3.9
   - chromadb
-  - chroma-hnswlib==0.7.3
   - pytest
